@@ -9,48 +9,29 @@
     <link rel="stylesheet" href="../assets/font.css">
 
     <style>
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            line-height: 100px;
+        /* .wrap {
+            overflow: hidden;
+        } */
 
-            transition: 0.5s;
-            color: #fff;
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: #fff;
+            line-height: 80px;
             border-bottom: 1px solid transparent;
         }
 
-        .header:hover {
-            color: #202124;
-            background: #fff;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .header.on {
-            line-height: 80px;
-            color: #202124;
-            background: #fff;
-            border-bottom: 1px solid #ddd;
-        }
 
         .header h1 a {
             display: inline-block;
             width: 110px;
             height: 30px;
-            background: url(../assets/logo_white.png) no-repeat;
+            background: url(../assets/logo_basic.png) no-repeat;
             font-size: 0;
             vertical-align: middle;
         }
 
-        .header:hover h1 a {
-            background: url(../assets/logo_basic.png) no-repeat;
-        }
-
-        .header.on h1 a {
-            background: url(../assets/logo_basic.png) no-repeat;
-        }
 
         .header .header_wrap {
             display: flex;
@@ -112,7 +93,7 @@
 
         .visualMovie video {
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - 81px);
             vertical-align: middle;
             object-fit: cover;
         }
@@ -146,16 +127,19 @@
             padding: 0 15px;
         }
 
-        .mainContent .inner figure {
+        .mainContent .inner>* {
             flex: 1;
+        }
+
+        .mainContent .inner .left figure {
+            position: sticky;
+            top: 180px;
         }
 
         .footer {
             border-top: 1px solid #ddd;
             text-align: center;
-            padding: 32px 0;
-
-            margin: 0 0 100vh 0;
+            padding: 32px 0 100vh 0;
         }
     </style>
 
@@ -200,21 +184,49 @@
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, harum.</p>
                 </div>
                 <div class="inner">
-                    <figure>
-                        <div class="img_box">
+                    <div class="left">
+                        <figure>
                             <img src="../images/mainvisual01.jpg" alt="">
-                        </div>
-                    </figure>
-                    <figure>
+                        </figure>
+                    </div>
+                    <div class="right">
                         <div class="img_box">
-                            <img src="../images/mainvisual02.jpg" alt="">
+                            <img src="../images/lesedilarona01.jpg" alt="">
                         </div>
-                    </figure>
-                    <figure>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, eaque nihil. Sapiente ullam
+                            temporibus sequi, ducimus assumenda cum commodi iusto exercitationem aliquid, veritatis
+                            perspiciatis dolores veniam unde necessitatibus reiciendis, nemo quos porro. Eveniet
+                            molestiae amet possimus ab magni quidem harum illum recusandae ducimus excepturi
+                            consequuntur, esse officia suscipit fugit quisquam deleniti corporis deserunt nobis ullam
+                            cupiditate explicabo facilis eaque? Tempore eum et quisquam maxime nobis, explicabo natus
+                            pariatur nihil ex consequuntur vitae ullam vero exercitationem provident, dolore sunt quia!
+                            Repudiandae voluptatibus asperiores quidem ullam! Et dicta unde ut error optio numquam esse
+                            dolorem eaque sunt facere, voluptatibus repudiandae, libero temporibus?</p>
                         <div class="img_box">
-                            <img src="../images/mainvisual03.jpg" alt="">
+                            <img src="../images/lesedilarona02.jpg" alt="">
                         </div>
-                    </figure>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, eaque nihil. Sapiente ullam
+                            temporibus sequi, ducimus assumenda cum commodi iusto exercitationem aliquid, veritatis
+                            perspiciatis dolores veniam unde necessitatibus reiciendis, nemo quos porro. Eveniet
+                            molestiae amet possimus ab magni quidem harum illum recusandae ducimus excepturi
+                            consequuntur, esse officia suscipit fugit quisquam deleniti corporis deserunt nobis ullam
+                            cupiditate explicabo facilis eaque? Tempore eum et quisquam maxime nobis, explicabo natus
+                            pariatur nihil ex consequuntur vitae ullam vero exercitationem provident, dolore sunt quia!
+                            Repudiandae voluptatibus asperiores quidem ullam! Et dicta unde ut error optio numquam esse
+                            dolorem eaque sunt facere, voluptatibus repudiandae, libero temporibus?</p>
+                        <div class="img_box">
+                            <img src="../images/lesedilarona03.jpg" alt="">
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, eaque nihil. Sapiente ullam
+                            temporibus sequi, ducimus assumenda cum commodi iusto exercitationem aliquid, veritatis
+                            perspiciatis dolores veniam unde necessitatibus reiciendis, nemo quos porro. Eveniet
+                            molestiae amet possimus ab magni quidem harum illum recusandae ducimus excepturi
+                            consequuntur, esse officia suscipit fugit quisquam deleniti corporis deserunt nobis ullam
+                            cupiditate explicabo facilis eaque? Tempore eum et quisquam maxime nobis, explicabo natus
+                            pariatur nihil ex consequuntur vitae ullam vero exercitationem provident, dolore sunt quia!
+                            Repudiandae voluptatibus asperiores quidem ullam! Et dicta unde ut error optio numquam esse
+                            dolorem eaque sunt facere, voluptatibus repudiandae, libero temporibus?</p>
+                    </div>
                 </div>
             </section>
         </main>
@@ -224,15 +236,7 @@
     </div>
     <script>
         $(function () {
-            $(window).on('scroll', function () {
-                const scrollHeight = $(window).scrollTop();
-                console.log(scrollHeight);
-                if (scrollHeight > 0) {
-                    $('.header').addClass('on')
-                } else {
-                    $('.header').removeClass('on')
-                }
-            })
+
         })
     </script>
 </body>

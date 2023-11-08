@@ -9,48 +9,30 @@
     <link rel="stylesheet" href="../assets/font.css">
 
     <style>
+        /* .wrap {
+            overflow: hidden;
+        } */
+
         .header {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 999;
-            line-height: 100px;
-
-            transition: 0.5s;
-            color: #fff;
-            border-bottom: 1px solid transparent;
-        }
-
-        .header:hover {
-            color: #202124;
             background: #fff;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .header.on {
             line-height: 80px;
-            color: #202124;
-            background: #fff;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid transparent;
+
         }
+
 
         .header h1 a {
             display: inline-block;
             width: 110px;
             height: 30px;
-            background: url(../assets/logo_white.png) no-repeat;
+            background: url(../assets/logo_basic.png) no-repeat;
             font-size: 0;
             vertical-align: middle;
         }
 
-        .header:hover h1 a {
-            background: url(../assets/logo_basic.png) no-repeat;
-        }
-
-        .header.on h1 a {
-            background: url(../assets/logo_basic.png) no-repeat;
-        }
 
         .header .header_wrap {
             display: flex;
@@ -69,7 +51,33 @@
         }
 
         .mainVisual {
-            position: relative;
+            position: sticky;
+            top: 0;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            height: 100vh;
+        }
+
+        .sticky .left {
+            background: #333;
+            color: #fff;
+        }
+
+        .sticky .sticky_wrap {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sticky .sticky_wrap>* {
+            flex: 1;
+        }
+
+        .sticky02 .sticky_wrap .left {
+            order: 2;
         }
 
         .mainVisual .scroll {
@@ -146,16 +154,19 @@
             padding: 0 15px;
         }
 
-        .mainContent .inner figure {
+        .mainContent .inner>* {
             flex: 1;
+        }
+
+        .mainContent .inner .left figure {
+            position: sticky;
+            top: 180px;
         }
 
         .footer {
             border-top: 1px solid #ddd;
             text-align: center;
             padding: 32px 0;
-
-            margin: 0 0 100vh 0;
         }
     </style>
 
@@ -186,7 +197,7 @@
             </div>
         </header>
         <main class="main">
-            <section class="mainVisual">
+            <section class="mainVisual sticky">
                 <div class="visualMovie">
                     <video src="../assets/m03.mp4" autoplay muted playsinline loop></video>
                 </div>
@@ -194,29 +205,39 @@
                     scroll
                 </a>
             </section>
-            <section class="mainContent">
-                <div class="title">
-                    <h2>Lorem ipsum dolor sit.</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, harum.</p>
-                </div>
-                <div class="inner">
-                    <figure>
-                        <div class="img_box">
-                            <img src="../images/mainvisual01.jpg" alt="">
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="img_box">
-                            <img src="../images/mainvisual02.jpg" alt="">
-                        </div>
-                    </figure>
-                    <figure>
-                        <div class="img_box">
-                            <img src="../images/mainvisual03.jpg" alt="">
-                        </div>
-                    </figure>
+            <section class="sticky01 sticky">
+                <div class="sticky_wrap">
+                    <div class="left">
+                        <h2>01 Lorem ipsum dolor sit.</h2>
+                    </div>
+                    <div class="right">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    </div>
                 </div>
             </section>
+
+            <section class="sticky02 sticky">
+                <div class="sticky_wrap">
+                    <div class="left">
+                        <h2>02 Lorem ipsum dolor sit.</h2>
+                    </div>
+                    <div class="right">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    </div>
+                </div>
+            </section>
+
+            <section class="sticky03 sticky">
+                <div class="sticky_wrap">
+                    <div class="left">
+                        <h2>03 Lorem ipsum dolor sit.</h2>
+                    </div>
+                    <div class="right">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    </div>
+                </div>
+            </section>
+
         </main>
         <footer class="footer">
             &copy; lee.
@@ -224,15 +245,7 @@
     </div>
     <script>
         $(function () {
-            $(window).on('scroll', function () {
-                const scrollHeight = $(window).scrollTop();
-                console.log(scrollHeight);
-                if (scrollHeight > 0) {
-                    $('.header').addClass('on')
-                } else {
-                    $('.header').removeClass('on')
-                }
-            })
+
         })
     </script>
 </body>
