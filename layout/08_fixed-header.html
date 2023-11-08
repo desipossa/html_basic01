@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fixed header</title>
+    <link rel="stylesheet" href="../assets/reset.css">
+    <link rel="stylesheet" href="../assets/font.css">
+
+    <style>
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            line-height: 80px;
+        }
+
+        .header .header_wrap {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 80px;
+        }
+
+        .gnb>ul {
+            display: flex;
+            gap: 40px;
+        }
+
+        .main {
+            position: relative;
+            z-index: 1;
+        }
+
+        .visualMovie video {
+            width: 100%;
+            height: 100vh;
+            vertical-align: middle;
+            object-fit: cover;
+        }
+    </style>
+
+    <script src="../assets/jquery-1.12.4.min.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header_wrap">
+                <h1>
+                    <a href="/">
+                        <img src="../images/grafflogo.png" alt="">
+                    </a>
+                </h1>
+                <nav class="gnb">
+                    <ul>
+                        <li><a href="">하이주얼리</a></li>
+                        <li><a href="">주얼리 컬렉션</a></li>
+                        <li><a href="">컬렉션 &amp; 브라이덜</a></li>
+                        <li><a href="">웨딩주얼리</a></li>
+                        <li><a href="">특별한 솔리테어</a></li>
+                    </ul>
+                </nav>
+                <div class="search">
+                    <i class="xi-search"></i>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="mainVisual">
+                <div class="visualMovie">
+                    <video src="../assets/m03.mp4" autoplay muted playsinline loop></video>
+                </div>
+            </section>
+        </main>
+        <footer class="footer"></footer>
+    </div>
+    <script>
+        $(function () {
+
+        })
+    </script>
+</body>
+
+</html>
